@@ -1,84 +1,99 @@
 # Modern Video Platform
 
-Live URL: Add your deployed URL here after deployment (Vercel/Netlify/GitHub Pages).
+Live URL: add your deployed link here after you publish the project.
 
-This project is an advanced React video platform inspired by YouTube. It fetches data from the YouTube v3 API (RapidAPI), uses Axios for API calls, and TanStack Query for caching + async state handling.
+This project is a modern video platform built with React and styled to feel similar to YouTube. It uses the YouTube v3 API from RapidAPI to load videos, channels, search results, and related content.
 
-## Features
+The app was built to show:
 
-- Sticky navbar with search input and live search suggestions.
-- Sidebar category navigation and horizontal category filter pills.
-- Feed page with responsive video grid.
-- Search results page for videos and channels.
-- Video details page with embedded player, full-screen toggle, stats, and related videos.
-- Channel details page with profile, subscriber count, banner, and uploaded videos.
-- Loading and error states handled with TanStack Query.
-- Fully responsive layout for mobile, tablet, and desktop.
+- API fetching with Axios
+- caching and loading states with TanStack Query
+- reusable React components
+- responsive design for phone, tablet, and desktop
+- better project structure and clear Git commits
 
-## Tech Stack
+## Main Features
 
-- React + Vite
+- Sticky top navbar with logo and search
+- Search suggestions while typing
+- Sidebar category menu
+- Horizontal category filter pills
+- Feed page with a responsive video grid
+- Video details page with player, stats, description, and related videos
+- Channel details page with banner, avatar, subscribers, and uploads
+- Loader and error messages when data is still loading or fails
+- Full-screen button for the video player
+
+## Tech Used
+
+- React
+- Vite
 - React Router DOM
 - Axios
-- @tanstack/react-query
+- TanStack Query
 
-## Project Structure
+## Folder Structure
 
-```bash
+```text
 src/
-	components/
-		Navbar.jsx
-		SearchBar.jsx
-		Sidebar.jsx
-		CategoryPills.jsx
-		VideoCard.jsx
-		ChannelCard.jsx
-		VideoPlayer.jsx
-		Videos.jsx
-		Loader.jsx
-	pages/
-		Feed.jsx
-		SearchFeed.jsx
-		VideoDetail.jsx
-		ChannelDetail.jsx
-	utils/
-		fetchFromAPI.js
-		formatters.js
-	constants/
-		categories.js
-	App.jsx
-	main.jsx
-	vite.css
+  components/
+    Navbar.jsx
+    SearchBar.jsx
+    Sidebar.jsx
+    CategoryPills.jsx
+    VideoCard.jsx
+    ChannelCard.jsx
+    VideoPlayer.jsx
+    Videos.jsx
+    Loader.jsx
+  pages/
+    Feed.jsx
+    SearchFeed.jsx
+    VideoDetail.jsx
+    ChannelDetail.jsx
+  utils/
+    fetchFromAPI.js
+    formatters.js
+  constants/
+    categories.js
+  App.jsx
+  main.jsx
+  vite.css
 ```
 
-## Local Setup
+## What Each Part Does
 
-1. Install dependencies:
+- `src/components`: reusable UI parts like the navbar, cards, sidebar, and loader
+- `src/pages`: the main screens of the app
+- `src/utils/fetchFromAPI.js`: Axios setup for RapidAPI requests
+- `src/utils/formatters.js`: helper functions for duration, views, and subscribers
+- `src/constants/categories.js`: category names used in the sidebar and pills
+- `src/vite.css`: the main styling file for the whole app
+
+## How To Run It Locally
+
+1. Install the packages:
 
 ```bash
 npm install
 ```
 
-2. Create your environment file in the project root:
+2. Create a `.env` file in the project root.
 
-```bash
-cp .env.example .env
-```
-
-3. Add your RapidAPI key inside `.env`:
+3. Add your RapidAPI key inside the `.env` file:
 
 ```bash
 VITE_RAPID_API_KEY=your_rapidapi_key_here
 REACT_APP_RAPID_API_KEY=your_rapidapi_key_here
 ```
 
-4. Start development server:
+4. Start the project:
 
 ```bash
 npm run dev
 ```
 
-5. Build production bundle:
+5. Build the project for production:
 
 ```bash
 npm run build
@@ -87,11 +102,44 @@ npm run build
 ## API Notes
 
 - Base URL: `https://youtube-v31.p.rapidapi.com`
-- API utility lives in `src/utils/fetchFromAPI.js`
-- Query caching is handled by TanStack Query to avoid duplicate requests when revisiting pages.
+- API calls are handled in `src/utils/fetchFromAPI.js`
+- TanStack Query stores fetched data in cache so the app does not make the same request again and again
 
 ## Deployment
 
-Deploy this project to Vercel, Netlify, or GitHub Pages.
+You can deploy this project on Vercel, Netlify, or GitHub Pages.
 
-After deployment, update the `Live URL` line at the top of this README with your real deployed link.
+After deployment, replace the `Live URL` text at the top of this README with your real website link.
+
+## Commit History In Easy English
+
+1. `5d978e3` - Started the project and installed the main packages.
+2. `1cd7203` - Set up Vite so the app can run and build.
+3. `e0ce0f5` - Added ESLint and ignore rules for cleaner development.
+4. `b195eb3` - Added the public icon files used by the app.
+5. `122ee00` - Replaced the starter app with the main route layout.
+6. `65671ee` - Added React Router and React Query provider setup.
+7. `3d2aeaa` - Created the Axios API file for RapidAPI requests.
+8. `17c999b` - Added helper functions for formatting duration, views, and subscribers.
+9. `701b2ba` - Added the category lists used in the sidebar and filter pills.
+10. `8f8f45c` - Added a reusable loading spinner component.
+11. `338905e` - Built the top navbar with the app logo and search area.
+12. `f76724e` - Added the sidebar menu for video categories.
+13. `fe6c408` - Added horizontal category buttons at the top of the feed.
+14. `24e1685` - Built the search bar and added live search suggestions.
+15. `2d992eb` - Created the channel card component.
+16. `983e9c0` - Created the video card component with thumbnail and metadata.
+17. `df247b8` - Added the grid component that can show both videos and channels.
+18. `41839d6` - Added the video player with a full-screen button.
+19. `773f1f1` - Built the home feed page with cached API loading.
+20. `6f08d4c` - Built the search results page.
+21. `d38d046` - Built the video details page and related videos section.
+22. `a5e9a67` - Built the channel details page and uploads section.
+23. `922b78b` - Added the main responsive styling to make the app look modern.
+24. `cea76ad` - Wrote the README and added the `.env.example` file.
+25. `83cd1e4` - Kept the original starter assets and old style files in the repo archive.
+
+## Final Check
+
+- `npm run lint` passed
+- `npm run build` passed
