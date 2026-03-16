@@ -87,13 +87,15 @@ VITE_RAPID_API_KEY=your_rapidapi_key_here
 REACT_APP_RAPID_API_KEY=your_rapidapi_key_here
 ```
 
-4. Start the project:
+4. Restart the Vite dev server after creating or editing `.env` so the key is picked up.
+
+5. Start the project:
 
 ```bash
 npm run dev
 ```
 
-5. Build the project for production:
+6. Build the project for production:
 
 ```bash
 npm run build

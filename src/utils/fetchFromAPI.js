@@ -11,12 +11,22 @@ const apiClient = axios.create({
 })
 
 export const fetchFromAPI = async (url, params = {}) => {
-  const response = await apiClient.get(url, {
-    params: {
-      maxResults: 24,
-      ...params,
-    },
-  })
+  if (!rapidApiKey) {
+    throw new Error('Missing RapidAPI key. Add VITE_RAPID_API_KEY to .env and restart the Vite dev server.')
+  }
 
-  return response.data
+  try {
+    const response = await apiClient.get(url, {
+      params: {
+        maxResults: 24,
+        ...params,
+      },
+    })
+
+    return response.data
+  } catch (error) {
+    const apiMessage = error.response?.data?.message || error.message
+
+    throw new Error(apiMessage || 'Unable to fetch data from RapidAPI.')
+  }
 }
